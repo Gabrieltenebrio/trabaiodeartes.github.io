@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trabalho Escolar - Galeria de Arte Brasileira: Figuração e Abstração">
+    <title>Galeria Digital | Figuração e Abstração na Arte Brasileira</title>
+    <style>
+        /* DESIGN SYSTEM */
+        :root {
+            --bg-pure: #000000;
+            --brand-red: #e63946;
+            --text-high: #ffffff;
+            --text-low: #b0b0b0;
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-pure);
+            color: var(--text-high);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10%;
+            scroll-snap-align: start;
+            position: relative;
+            background: radial-gradient(circle at 15% 50%, #1a0000 0%, #000 100%);
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .art-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            max-width: 1300px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .art-display {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .art-display::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: var(--brand-red);
+            opacity: 0.03;
+            filter: blur(80px);
+            z-index: -1;
+        }
+
+        .art-display img {
+            max-width: 100%;
+            max-height: 70vh; 
+            border: 1px solid var(--brand-red);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+            transition: var(--transition-smooth);
+            object-fit: contain;
+            background-color: #111; 
+        }
+
+        .art-display img:hover {
+            transform: scale(1.02) translateY(-10px);
+            border-color: var(--text-high);
+            box-shadow: 0 40px 80px rgba(230, 57, 70, 0.2);
+        }
+
+        .art-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category-tag {
+            align-self: flex-start;
+            background-color: var(--brand-red);
+            color: var(--text-high);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 15px;
+            font-weight: 200;
+            letter-spacing: -1px;
+        }
+
+        .artist-name {
+            font-size: 1.1rem;
+            color: var(--brand-red);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 35px;
+            display: block;
+        }
+
+        .description {
+            border-left: 2px solid var(--brand-red);
+            padding-left: 30px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-low);
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .reference-link {
+            font-size: 0.65rem;
+            color: #444;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        .reference-link:hover { color: var(--brand-red); }
+
+        @media (max-width: 1024px) {
+            .art-container { gap: 40px; }
+            h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            section { height: auto; min-height: 100vh; padding: 60px 25px; }
+            .art-container { grid-template-columns: 1fr; text-align: center; }
+            .category-tag { align-self: center; }
+            .description { border-left: none; padding-left: 0; }
+            .art-display img { max-height: 50vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section id="malfatti-1">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://arteref.com/wp-content/uploads/2019/06/A-Estudante-detalhe.jpg" alt="Pintura 'A Estudante' de Anita Malfatti">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Arte Figurativa</span>
+                    <h1>A Estudante</h1>
+                    <span class="artist-name">Anita Malfatti (1915)</span>
+                    <div class="description">
+                        <p>Considerada uma das obras que iniciaram o Modernismo no Brasil, esta tela é um exemplo de <strong>figuração</strong>. Nela, reconhecemos a face e o corpo de uma mulher, mas a artista utiliza cores arbitrárias e contornos fortes para expressar sentimentos, rompendo com a cópia fiel da realidade.</p>
+                        <a href="https://pt.wikipedia.org/wiki/A_Estudante" class="reference-link" target="_blank">Fonte: Acervo Público</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="malfatti-2">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://i1.wp.com/virusdaarte.net/wp-content/uploads/2015/04/O-HOMAM.jpg" alt="Pintura 'O Homem Amarelo' de Anita Malfatti" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Arte Figurativa</span>
+                    <h1>O Homem Amarelo</h1>
+                    <span class="artist-name">Anita Malfatti (1915-1916)</span>
+                    <div class="description">
+                        <p>Uma das obras mais impactantes da Exposição de 1917. A figuração aqui é distorcida intencionalmente. O uso do amarelo no rosto do modelo não descreve a cor real da pele, mas sim um estado psicológico, característica marcante do Expressionismo.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="malfatti-3">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://th.bing.com/th/id/R.9b92d381da83f29ee8231d081c8f97dc?rik=RTE4WZ%2bMV5SsyA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-fjFKiW8rlgg%2fVQ3uv7cOh5I%2fAAAAAAAAB6Y%2fW21uYh8VZek%2fs1600%2f2012_10_10_21_16_561.jpg&ehk=s4BI4YLNSXibTKuuJR1xDdFWniI9Z8J0RY5bjerf%2fCs%3d&risl=&pid=ImgRaw&r=0" alt="Pintura 'A Boba' de Anita Malfatti" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Arte Figurativa</span>
+                    <h1>A Boba</h1>
+                    <span class="artist-name">Anita Malfatti (1915-1916)</span>
+                    <div class="description">
+                        <p>Nesta tela, a figuração se une a elementos que beiram a abstração no fundo da composição. As linhas tensas e o olhar vago da personagem demonstram como a artista usava a forma humana para explorar a angústia e a interioridade.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="malfatti-4">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://www.revistaprosaversoearte.com/content/uploads/2017/02/Tropical-Anita-Malfatti-1917.jpg" alt="Pintura 'Tropical' de Anita Malfatti" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Arte Figurativa</span>
+                    <h1>Tropical</h1>
+                    <span class="artist-name">Anita Malfatti (1917)</span>
+                    <div class="description">
+                        <p>Um mergulho na brasilidade. A figuração da mulher mestiça segurando frutas tropicais é uma das primeiras tentativas do modernismo de retratar a identidade nacional, misturando a técnica de vanguarda europeia com temas locais.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="araujo-1">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://live.staticflickr.com/2323/2380882978_fddecccb7c_b.jpg" alt="Escultura 'Aranha' de Emanoel Araújo no MAM" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Geométrica</span>
+                    <h1>Aranha</h1>
+                    <span class="artist-name">Emanoel Araújo (1981)</span>
+                    <div class="description">
+                        <p>O mestre Emanoel Araújo utiliza a <strong>abstração</strong> para criar ritmos visuais e tridimensionais. Esta escultura monumental rompe com a forma natural do inseto e se foca na pureza das linhas, ângulos pontiagudos e tensão estrutural.</p>
+                        <a href="https://pt.wikipedia.org/wiki/Emanoel_Ara%C3%BAjo" class="reference-link" target="_blank">Fonte: MAM São Paulo</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="araujo-2">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.3YtEeL8yk9TixxAJYqgWWgHaJ4?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Escultura Totem de Emanoel Araújo" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Geométrica</span>
+                    <h1>Totem (Ibirapuera)</h1>
+                    <span class="artist-name">Emanoel Araújo</span>
+                    <div class="description">
+                        <p>Ao verticalizar suas formas abstratas no espaço público, o artista cria "totens" modernos. Eles impõem uma forte presença física e espiritual, conectando a terra e o ar através da cor vibrante e das formas geométricas inspiradas na herança africana.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="araujo-3">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://s3-sa-east-1.amazonaws.com/arrematearte-farm/tnt/lot_photos/36432/67f186cca7f6a7e0df693d3d74112f88ec7e5099_ml.JPG?1624086010" alt="Fachada com obras de Emanoel Araújo" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Geométrica</span>
+                    <h1>Tensão Estrutural</h1>
+                    <span class="artist-name">Emanoel Araújo</span>
+                    <div class="description">
+                        <p>A abstração de Araújo também explora o peso e o contraste com a arquitetura. Suas esculturas vermelhas e pretas funcionam como assinaturas de poder e ritmo nas paisagens dos museus e jardins projetados pelo modernismo.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="araujo-4">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://tourb.com.br/img/lugares/sao-paulo/museu-afro-brasil-2.jpg" alt="Museu Afro Brasil criado por Emanoel Araújo" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração e História</span>
+                    <h1>Museu Afro Brasil</h1>
+                    <span class="artist-name">Emanoel Araújo (Fundador)</span>
+                    <div class="description">
+                        <p>Mais do que pintor e escultor, Araújo foi o criador do Museu Afro Brasil. A arquitetura e a expografia que ele desenhou aplicam a mesma lógica geométrica abstrata para abrigar e exaltar a herança negra na arte e cultura nacional.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="milhazes-1">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800" alt="Abstração colorida representativa do estilo de Beatriz Milhazes" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Ornamental</span>
+                    <h1>O Mágico</h1>
+                    <span class="artist-name">Beatriz Milhazes (2001)</span>
+                    <div class="description">
+                        <p>Milhazes é o maior nome da <strong>abstração</strong> brasileira contemporânea. Suas obras originais são construídas por camadas de padrões circulares e arabescos rítmicos. <em>(Imagem ilustrativa de abstração devido a direitos autorais web).</em></p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="milhazes-2">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=800" alt="Abstração geométrica colorida" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Ornamental</span>
+                    <h1>Mariposa</h1>
+                    <span class="artist-name">Beatriz Milhazes (2004)</span>
+                    <div class="description">
+                        <p>A abstração de Milhazes bebe da fonte do barroco brasileiro e do carnaval. O acúmulo de círculos e cores vibrantes cria uma sensação de movimento constante e explosão visual autossuficiente, sem precisar imitar figuras reais.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="milhazes-3">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.Z1WOoXeH9D-xcXXnhCrlHQHaEZ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Padrões abstratos tropicais" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Ornamental</span>
+                    <h1>O Elefante Azul</h1>
+                    <span class="artist-name">Beatriz Milhazes (2002)</span>
+                    <div class="description">
+                        <p>As formas são aplicadas à tela usando uma técnica de decalque com plástico, o que deixa a superfície lisa, mas visualmente complexa. A abstração geométrica ganha aqui um tom psicodélico e intensamente tropical.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="milhazes-4">
+            <article class="art-container">
+                <div class="art-display">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800" alt="Cores e ritmos puros" loading="lazy">
+                </div>
+                <div class="art-content">
+                    <span class="category-tag">Abstração Ornamental</span>
+                    <h1>Beleza Pura</h1>
+                    <span class="artist-name">Beatriz Milhazes (2006)</span>
+                    <div class="description">
+                        <p>Nesta obra, a artista desafia a percepção de fundo e primeiro plano. Tudo é ornamento. Diferente da abstração rigorosa (com linhas secas e frias), a abstração de Milhazes é festiva, orgânica e emocional.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+</body>
+</html>
